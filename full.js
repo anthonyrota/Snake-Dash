@@ -77,10 +77,11 @@ var GameTimer = function () {
   }, {
     key: 'formatString',
     value: function formatString(string, value, amount) {
-      var padding = value.repeat(amount);
-      var str = padding.concat(string);
-
-      return str.slice(-amount);
+      while (string.length < amount) {
+        string += value;
+      }
+      
+      return string;
     }
 
     /**
